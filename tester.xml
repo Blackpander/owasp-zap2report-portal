@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="OWASP ZAP - Active Scan">
+  <testsuite hostname="www.kohldclothing.com" name="Cross-Domain JavaScript Source File Inclusion">
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="https://stats.wp.com/e-201907.js" type="error">
+                Method: GET
+                Param: https://stats.wp.com/e-201907.js
+                Evidence: &lt;script type='text/javascript' src='https://stats.wp.com/e-201907.js' async='async' defer='defer'&gt;&lt;/script&gt;
+                Solution: &lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;&lt;/p&gt;
+                CWE ID: 829
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201907" type="error">
+                Method: GET
+                Param: https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201907
+                Evidence: &lt;script type='text/javascript' src='https://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201907'&gt;&lt;/script&gt;
+                Solution: &lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;&lt;/p&gt;
+                CWE ID: 829
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="https://stats.wp.com/s-201907.js" type="error">
+                Method: GET
+                Param: https://stats.wp.com/s-201907.js
+                Evidence: &lt;script async src='https://stats.wp.com/s-201907.js'&gt;&lt;/script&gt;
+                Solution: &lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;&lt;/p&gt;
+                CWE ID: 829
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="https://secure.gravatar.com/js/gprofiles.js?ver=2019Febaa" type="error">
+                Method: GET
+                Param: https://secure.gravatar.com/js/gprofiles.js?ver=2019Febaa
+                Evidence: &lt;script type='text/javascript' src='https://secure.gravatar.com/js/gprofiles.js?ver=2019Febaa'&gt;&lt;/script&gt;
+                Solution: &lt;p&gt;Ensure JavaScript source files are loaded from only trusted sources, and the sources can't be controlled by end users of the application.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;&lt;/p&gt;
+                CWE ID: 829
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.kohldclothing.com" name="X-Frame-Options Header Not Set">
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="X-Frame-Options" type="error">
+                Method: GET
+                Param: X-Frame-Options
+                Evidence: 
+                Solution: &lt;p&gt;Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx&lt;/p&gt;
+                CWE ID: 16
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.kohldclothing.com" name="Web Browser XSS Protection Not Enabled">
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="X-XSS-Protection" type="error">
+                Method: GET
+                Param: X-XSS-Protection
+                Evidence: 
+                Solution: &lt;p&gt;Ensure that the web browser's XSS filter is enabled, by setting the X-XSS-Protection HTTP response header to '1'.&lt;/p&gt;
+                Other Info: &lt;p&gt;The X-XSS-Protection HTTP response header allows the web server to enable or disable the web browser's XSS protection mechanism. The following values would attempt to enable it: &lt;/p&gt;&lt;p&gt;X-XSS-Protection: 1; mode=block&lt;/p&gt;&lt;p&gt;X-XSS-Protection: 1; report=http://www.example.com/xss&lt;/p&gt;&lt;p&gt;The following values would disable it:&lt;/p&gt;&lt;p&gt;X-XSS-Protection: 0&lt;/p&gt;&lt;p&gt;The X-XSS-Protection HTTP response header is currently supported on Internet Explorer, Chrome and Safari (WebKit).&lt;/p&gt;&lt;p&gt;Note that this alert is only raised if the response body could potentially contain an XSS payload (with a text-based content type, with a non-zero length).&lt;/p&gt;
+                Reference: &lt;p&gt;https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet&lt;/p&gt;&lt;p&gt;https://blog.veracode.com/2014/03/guidelines-for-setting-security-headers/&lt;/p&gt;
+                CWE ID: 933
+                WASC ID: 14
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.kohldclothing.com" name="X-Content-Type-Options Header Missing">
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="X-Content-Type-Options" type="error">
+                Method: GET
+                Param: X-Content-Type-Options
+                Evidence: 
+                Solution: &lt;p&gt;Ensure that the application/web server sets the Content-Type header appropriately, and that it sets the X-Content-Type-Options header to 'nosniff' for all web pages.&lt;/p&gt;&lt;p&gt;If possible, ensure that the end user uses a standards-compliant and modern web browser that does not perform MIME-sniffing at all, or that can be directed by the web application/web server to not perform MIME-sniffing.&lt;/p&gt;
+                Other Info: &lt;p&gt;This issue still applies to error type pages (401, 403, 500, etc) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.&lt;/p&gt;&lt;p&gt;At "High" threshold this scanner will not alert on client or server error responses.&lt;/p&gt;
+                Reference: &lt;p&gt;http://msdn.microsoft.com/en-us/library/ie/gg622941%28v=vs.85%29.aspx&lt;/p&gt;&lt;p&gt;https://www.owasp.org/index.php/List_of_useful_HTTP_headers&lt;/p&gt;
+                CWE ID: 16
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.kohldclothing.com" name="Incomplete or No Cache-control and Pragma HTTP Header Set">
+    <testcase name="https://www.kohldclothing.com/">
+      <error message="Cache-Control" type="error">
+                Method: GET
+                Param: Cache-Control
+                Evidence: 
+                Solution: &lt;p&gt;Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate; and that the pragma HTTP header is set with no-cache.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Web_Content_Caching&lt;/p&gt;
+                CWE ID: 525
+                WASC ID: 13
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.gstatic.com" name="Incomplete or No Cache-control and Pragma HTTP Header Set">
+    <testcase name="https://www.gstatic.com/chrome/intelligence/assist/ranker/models/translate/2017/03/translate_ranker_model_20170329.pb.bin">
+      <error message="Cache-Control" type="error">
+                Method: GET
+                Param: Cache-Control
+                Evidence: public, max-age=31536000
+                Solution: &lt;p&gt;Whenever possible ensure the cache-control HTTP header is set with no-cache, no-store, must-revalidate; and that the pragma HTTP header is set with no-cache.&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;https://www.owasp.org/index.php/Session_Management_Cheat_Sheet#Web_Content_Caching&lt;/p&gt;
+                CWE ID: 525
+                WASC ID: 13
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+  <testsuite hostname="www.gstatic.com" name="X-Frame-Options Header Not Set">
+    <testcase name="https://www.gstatic.com/chrome/intelligence/assist/ranker/models/translate/2017/03/translate_ranker_model_20170329.pb.bin">
+      <error message="X-Frame-Options" type="error">
+                Method: GET
+                Param: X-Frame-Options
+                Evidence: 
+                Solution: &lt;p&gt;Most modern Web browsers support the X-Frame-Options HTTP header. Ensure it's set on all web pages returned by your site (if you expect the page to be framed only by pages on your server (e.g. it's part of a FRAMESET) then you'll want to use SAMEORIGIN, otherwise if you never expect the page to be framed, you should use DENY. ALLOW-FROM allows specific websites to frame the web page in supported web browsers).&lt;/p&gt;
+                Other Info: 
+                Reference: &lt;p&gt;http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx&lt;/p&gt;
+                CWE ID: 16
+                WASC ID: 15
+                Source ID: 3</error>
+      <system-out>
+                I am system output
+      </system-out>
+      <system-err>
+                I am the error output
+      </system-err>
+    </testcase>
+  </testsuite>
+</testsuites>
